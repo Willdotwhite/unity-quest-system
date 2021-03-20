@@ -1,0 +1,8 @@
+{
+  "name": "com.dotwogames.quests",
+  "displayName": "SO3 Quests",
+  "version": "1.0.0",
+  "unity": "2020.2",
+  "type": "library",
+  "keywords": []
+}
