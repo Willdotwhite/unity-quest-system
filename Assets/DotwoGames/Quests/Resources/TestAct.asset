@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 129c48a7dd9ee61439ef4df5f9ded29b, type: 3}
   m_Name: TestAct
   m_EditorClassIdentifier: 
-  chapters: []
+  ID: 1
+  _currentChapterId: 1
+  chapters:
+  - {fileID: 11400000, guid: 4f9ec72894c007e46ab7a80de5f83206, type: 2}

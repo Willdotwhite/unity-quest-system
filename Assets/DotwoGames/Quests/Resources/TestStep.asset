@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34d21ad07fe0216459147a0494c59117, type: 3}
-  m_Name: TestTask
+  m_Script: {fileID: 11500000, guid: f7a9d0ee80df83e45b1dc6d3186ac2eb, type: 3}
+  m_Name: TestStep
   m_EditorClassIdentifier: 
-  ID: 1
-  steps:
-  - {fileID: 11400000, guid: ee588f50236d10244a5469ec041218d3, type: 2}
+  ID: 0

@@ -9,7 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21165a863db5e2440925c7271ccbb891, type: 3}
-  m_Name: TestStoryline
+  m_Script: {fileID: 11500000, guid: 34d21ad07fe0216459147a0494c59117, type: 3}
+  m_Name: TestTask2
   m_EditorClassIdentifier: 
-  acts: []
+  ID: 0
+  parent: {fileID: 0}
+  steps: []
