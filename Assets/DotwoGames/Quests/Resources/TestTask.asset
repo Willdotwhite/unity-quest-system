@@ -13,5 +13,8 @@ MonoBehaviour:
   m_Name: TestTask
   m_EditorClassIdentifier: 
   ID: 1
-  steps:
+  isCompleted: 1
+  _children:
   - {fileID: 11400000, guid: ee588f50236d10244a5469ec041218d3, type: 2}
+  - {fileID: 11400000, guid: 7c2cea09a1acaab459297f9ad8ecf95d, type: 2}
+  _currentChildId: 3

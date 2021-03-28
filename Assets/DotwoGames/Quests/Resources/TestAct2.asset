@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21165a863db5e2440925c7271ccbb891, type: 3}
-  m_Name: TestQuest
+  m_Script: {fileID: 11500000, guid: 129c48a7dd9ee61439ef4df5f9ded29b, type: 3}
+  m_Name: TestAct2
   m_EditorClassIdentifier: 
   ID: 1
   isCompleted: 0
   _children:
-  - {fileID: 11400000, guid: feed09205854d274c9dda740edb7de58, type: 2}
-  - {fileID: 11400000, guid: 862fe8f2c17c12e458df455a73277aaf, type: 2}
+  - {fileID: 11400000, guid: 4f9ec72894c007e46ab7a80de5f83206, type: 2}
+  - {fileID: 11400000, guid: 92891c77c17ba444db5da6e3322c4fce, type: 2}
   _currentChildId: 1

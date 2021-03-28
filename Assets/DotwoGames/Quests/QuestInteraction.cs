@@ -10,16 +10,23 @@ namespace DotwoGames.Quests
     {
         [SerializeField] private Quest currentQuest;
 
-        private bool fired;
+        private void Awake()
+        {
+            currentQuest.SetState("1.1.1.1");
+        }
 
         private void Update()
         {
             Debug.Log(currentQuest.GetProgress());
 
-            if (Time.timeSinceLevelLoad > 1f && !fired)
+            if (Time.timeSinceLevelLoad > 4f)
             {
-                fired = true;
-                currentQuest.CurrentAct.CurrentChapter.CurrentTask.Steps[0].Debug_Complete();
+                currentQuest.CurrentAct.CurrentChapter.CurrentTask.Debug_CompleteStep(0);
+            }
+
+            if (Time.timeSinceLevelLoad > 8f)
+            {
+                currentQuest.CurrentAct.CurrentChapter.CurrentTask.Debug_CompleteStep(1);
             }
         }
     }

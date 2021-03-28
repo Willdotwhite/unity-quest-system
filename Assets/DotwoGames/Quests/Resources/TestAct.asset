@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: TestAct
   m_EditorClassIdentifier: 
   ID: 1
-  _currentChapterId: 1
-  chapters:
+  isCompleted: 0
+  _children:
   - {fileID: 11400000, guid: 4f9ec72894c007e46ab7a80de5f83206, type: 2}
+  - {fileID: 11400000, guid: 92891c77c17ba444db5da6e3322c4fce, type: 2}
+  _currentChildId: 1

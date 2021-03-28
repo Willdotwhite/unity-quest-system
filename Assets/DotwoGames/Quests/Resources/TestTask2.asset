@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34d21ad07fe0216459147a0494c59117, type: 3}
   m_Name: TestTask2
   m_EditorClassIdentifier: 
-  ID: 0
-  parent: {fileID: 0}
-  steps: []
+  ID: 2
+  isCompleted: 1
+  _children:
+  - {fileID: 11400000, guid: ee588f50236d10244a5469ec041218d3, type: 2}
+  - {fileID: 11400000, guid: 7c2cea09a1acaab459297f9ad8ecf95d, type: 2}
+  _currentChildId: 3

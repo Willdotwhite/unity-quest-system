@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: TestChapter
   m_EditorClassIdentifier: 
   ID: 1
-  parent: {fileID: 11400000, guid: feed09205854d274c9dda740edb7de58, type: 2}
-  _currentTaskId: 1
-  tasks:
+  isCompleted: 0
+  _children:
   - {fileID: 11400000, guid: 9c7017232860a624dad41fed807ab06c, type: 2}
   - {fileID: 11400000, guid: 36fe9e591dfd4574c9837afa4c75780a, type: 2}
+  _currentChildId: 3

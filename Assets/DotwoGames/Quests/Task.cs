@@ -12,34 +12,22 @@ namespace DotwoGames.Quests
     /// </para>
     /// </summary>
     [CreateAssetMenu(fileName = "NewItem", menuName = "Quests/4. Task")]
-    public class Task : ScriptableObject
+    public class Task : BaseQuestStructureElement<Step>
     {
-        public int ID;
+        public List<Step> Steps => Children;
 
-        public Chapter parent;
-
-        // DEBUG
-        public List<Step> Steps => steps;
-        [SerializeField] private List<Step> steps;
-
-        private void OnEnable()
+        protected override void OnEnable()
         {
-            foreach (Step step in steps)
-            {
-                step.parent = this;
-            }
+            base.OnEnable();
+
+            // Create in-memory clones of Steps, so they can be completed and updated independently
+            List<Step> steps = _children.Select(Instantiate).ToList();
+            Children = steps;
         }
 
-        public void NotifyComplete()
+        public void Debug_CompleteStep(int id)
         {
-            bool areAllStepsComplete = steps.All(step => step.Completed);
-
-            if (areAllStepsComplete)
-            {
-                // Notify parent
-                Debug.Log("I'm complete!");
-                parent.NotifyComplete();
-            }
+            Steps[id].Debug_Complete();
         }
     }
 }

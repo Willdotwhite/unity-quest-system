@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace DotwoGames.Quests
@@ -7,24 +6,14 @@ namespace DotwoGames.Quests
     /// Large, cohesive unit of a quest
     /// </summary>
     [CreateAssetMenu(fileName = "NewItem", menuName = "Quests/2. Act")]
-    public class Act : ScriptableObject
+    public class Act : BaseQuestStructureElement<Chapter>
     {
-        public int ID;
+        public Chapter CurrentChapter => CurrentChild;
 
-        public Quest parent;
-
-        public Chapter CurrentChapter => chapters[_currentChapterId - 1];
-
-        [SerializeField] private int _currentChapterId;
-
-        [SerializeField] private List<Chapter> chapters;
-
-        private void OnEnable()
+        protected override void OnEnable()
         {
-            foreach (Chapter c in chapters)
-            {
-                c.parent = this;
-            }
+            base.OnEnable();
+            Children = _children;
         }
     }
 }

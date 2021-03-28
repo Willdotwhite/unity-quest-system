@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace DotwoGames.Quests
@@ -7,23 +6,26 @@ namespace DotwoGames.Quests
     /// Individual element to complete a quest
     /// </summary>
     [CreateAssetMenu(fileName = "NewItem", menuName = "Quests/5. Step")]
-    public /*abstract*/ class Step : ScriptableObject
+    public /*abstract*/ class Step : ScriptableObject, IQuestStructureElement
     {
-        public int ID;
+        public bool Completed { get => isCompleted; set => isCompleted = value; }
 
-        public bool Completed { get; private set; }
-
-        public Task parent;
+        [SerializeField]
+        private bool isCompleted;
 
         public void Debug_Complete()
         {
-            OnComplete();
+            Completed = true;
         }
 
-        private void OnComplete()
+        public void SetState(int[] state)
         {
-            Completed = true;
-            parent.NotifyComplete();
+            Debug.Log($"Not sure what this'll be: {state}, {state.Length}");
+        }
+
+        public void UpdateState()
+        {
+
         }
     }
 }
