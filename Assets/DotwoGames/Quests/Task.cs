@@ -24,10 +24,5 @@ namespace DotwoGames.Quests
             List<Step> steps = _children.Select(Instantiate).ToList();
             Children = steps;
         }
-
-        public void Debug_CompleteStep(int id)
-        {
-            Steps[id].Debug_Complete();
-        }
     }
 }

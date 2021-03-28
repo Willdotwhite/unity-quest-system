@@ -13,19 +13,11 @@ namespace DotwoGames.Quests
         [SerializeField]
         private bool isCompleted;
 
-        public void Debug_Complete()
-        {
-            Completed = true;
-        }
-
         public void SetState(int[] state)
         {
             Debug.Log($"Not sure what this'll be: {state}, {state.Length}");
         }
 
-        public void UpdateState()
-        {
-
-        }
+        public void UpdateState() {}
     }
 }

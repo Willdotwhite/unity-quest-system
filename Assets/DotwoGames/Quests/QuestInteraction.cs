@@ -18,16 +18,6 @@ namespace DotwoGames.Quests
         private void Update()
         {
             Debug.Log(currentQuest.GetProgress());
-
-            if (Time.timeSinceLevelLoad > 4f)
-            {
-                currentQuest.CurrentAct.CurrentChapter.CurrentTask.Debug_CompleteStep(0);
-            }
-
-            if (Time.timeSinceLevelLoad > 8f)
-            {
-                currentQuest.CurrentAct.CurrentChapter.CurrentTask.Debug_CompleteStep(1);
-            }
         }
     }
 }
