@@ -8,16 +8,16 @@ namespace DotwoGames.Quests
     /// <summary>
     /// Top-level object for a single quest line
     /// </summary>
-    [CreateAssetMenu(fileName = "NewItem", menuName = "Quests/1. Quest")]
+    // [CreateAssetMenu(fileName = "NewItem", menuName = "Quests/1. Quest")]
     public class Quest : BaseQuestStructureElement<Act>
     {
-        public Act CurrentAct => CurrentChild;
-
-        protected override void OnEnable()
+        protected override void Awake()
         {
-            base.OnEnable();
-            Children = _children;
+            base.Awake();
+            Debug.Log("Quest starting up!");
         }
+
+        public Act CurrentAct => CurrentChild;
 
         /// <summary>
         /// Set the current state of the quest equal to a quest progress string

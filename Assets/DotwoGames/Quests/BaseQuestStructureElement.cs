@@ -3,11 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace DotwoGames.Quests
 {
-    public abstract class BaseQuestStructureElement<TChild> : ScriptableObject, IQuestStructureElement where TChild: IQuestStructureElement
+    public abstract class BaseQuestStructureElement<TChild> : MonoBehaviour, IQuestStructureElement where TChild: Object, IQuestStructureElement
     {
+        // DEBUG
+        protected virtual void Awake()
+        {
+            _currentChildId = 1;
+
+            // Create in-memory clones of Steps, so they can be completed and updated independently
+            Children = Children.Select(Instantiate).ToList();
+        }
+
         public int ID;
 
         public bool Completed
@@ -39,12 +49,7 @@ namespace DotwoGames.Quests
         /// These aren't the actual children used, as Tasks need to overwrite them
         /// </para>
         /// </summary>
-        [SerializeField] protected List<TChild> _children;
-
-        /// <summary>
-        /// Actual Children used internally
-        /// </summary>
-        protected List<TChild> Children { get; set; }
+        [SerializeField] protected List<TChild> Children;
 
         /// <summary>
         /// ID of current active Child in children

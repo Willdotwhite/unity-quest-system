@@ -7,6 +7,13 @@ namespace DotwoGames.Quests
     {
         [SerializeField] private Quest quest;
 
+        public Quest Quest => quest;
+
+        private void Awake()
+        {
+            quest = Instantiate(quest);
+        }
+
         private void Start()
         {
             InvokeRepeating("OnQuestStateChange", 1f, 1f);

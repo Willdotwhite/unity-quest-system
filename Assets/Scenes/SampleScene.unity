@@ -328,7 +328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99d91267bd5c2b44fb4b21943e4aed15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  quest: {fileID: 11400000, guid: 25d9536d0dc7cf24b96342992b529bfa, type: 2}
+  quest: {fileID: 5499895453825334765, guid: 6eaa3d9d199c03f4a8fc5c5274677dbf, type: 3}
 --- !u!4 &1997901354
 Transform:
   m_ObjectHideFlags: 0
@@ -386,4 +386,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f93294b527676844e8bad22a06ee7116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentQuest: {fileID: 11400000, guid: 25d9536d0dc7cf24b96342992b529bfa, type: 2}
+  currentQuest: {fileID: 0}

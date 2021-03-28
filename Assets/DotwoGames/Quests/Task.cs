@@ -11,18 +11,14 @@ namespace DotwoGames.Quests
     /// Wrapper around Step[] in order to allow a flexible format (e.g. two steps in either order)
     /// </para>
     /// </summary>
-    [CreateAssetMenu(fileName = "NewItem", menuName = "Quests/4. Task")]
+    // [CreateAssetMenu(fileName = "NewItem", menuName = "Quests/4. Task")]
     public class Task : BaseQuestStructureElement<Step>
     {
         public List<Step> Steps => Children;
 
-        protected override void OnEnable()
+        public void Debug_Complete(int p0)
         {
-            base.OnEnable();
-
-            // Create in-memory clones of Steps, so they can be completed and updated independently
-            List<Step> steps = _children.Select(Instantiate).ToList();
-            Children = steps;
+            Steps[p0].Completed = true;
         }
     }
 }
