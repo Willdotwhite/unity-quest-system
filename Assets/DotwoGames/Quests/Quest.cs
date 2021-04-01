@@ -1,15 +1,11 @@
-using System;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.Assertions;
 
 namespace DotwoGames.Quests
 {
     /// <summary>
     /// Top-level object for a single quest line
     /// </summary>
-    // [CreateAssetMenu(fileName = "NewItem", menuName = "Quests/1. Quest")]
-    public class Quest : BaseQuestStructureElement<Act>
+    public class Quest : ParentQuestStructureElement<Act>
     {
         protected override void Awake()
         {

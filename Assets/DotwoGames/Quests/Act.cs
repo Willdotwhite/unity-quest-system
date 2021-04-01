@@ -1,12 +1,9 @@
-using UnityEngine;
-
 namespace DotwoGames.Quests
 {
     /// <summary>
     /// Large, cohesive unit of a quest
     /// </summary>
-    // [CreateAssetMenu(fileName = "NewItem", menuName = "Quests/2. Act")]
-    public class Act : BaseQuestStructureElement<Chapter>
+    public class Act : ParentQuestStructureElement<Chapter>
     {
         public Chapter CurrentChapter => CurrentChild;
     }

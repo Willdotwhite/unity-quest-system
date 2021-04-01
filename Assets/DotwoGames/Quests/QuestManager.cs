@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace DotwoGames.Quests
@@ -13,11 +12,6 @@ namespace DotwoGames.Quests
         {
             quest = Instantiate(quest);
             quest.SetState("1.1.1");
-        }
-
-        private void Update()
-        {
-            Debug.Log(quest.GetProgress());
         }
     }
 }
