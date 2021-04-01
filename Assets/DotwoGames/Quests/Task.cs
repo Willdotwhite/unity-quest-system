@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 
 namespace DotwoGames.Quests
 {
@@ -16,9 +14,6 @@ namespace DotwoGames.Quests
     {
         public List<Step> Steps => Children;
 
-        public void Debug_Complete(int p0)
-        {
-            Steps[p0].Completed = true;
-        }
+        public List<Step> RemainingSteps => Steps.Where(step => !step.Completed).ToList();
     }
 }

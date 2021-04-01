@@ -12,17 +12,12 @@ namespace DotwoGames.Quests
         private void Awake()
         {
             quest = Instantiate(quest);
+            quest.SetState("1.1.1");
         }
 
-        private void Start()
+        private void Update()
         {
-            InvokeRepeating("OnQuestStateChange", 1f, 1f);
-        }
-
-        // TODO: Event-ise
-        private void OnQuestStateChange()
-        {
-            quest.UpdateState();
+            Debug.Log(quest.GetProgress());
         }
     }
 }

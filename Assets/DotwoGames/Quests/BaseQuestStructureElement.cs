@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -13,28 +14,37 @@ namespace DotwoGames.Quests
         protected virtual void Awake()
         {
             _currentChildId = 1;
+            _completed = false;
 
             // Create in-memory clones of Steps, so they can be completed and updated independently
-            Children = Children.Select(Instantiate).ToList();
+            Children = Children.Select(child => Instantiate(child, transform)).ToList();
+
+            foreach (TChild child in Children)
+            {
+                child.onComplete += OnChildComplete;
+            }
         }
 
         public int ID;
 
+        //
+        public event IQuestStructureElement.OnComplete onComplete;
+
+        private bool _completed;
+
+
         public bool Completed
         {
-            get => isCompleted;
+            get => _completed;
             set
             {
-                isCompleted = value;
-                if (isCompleted)
+                _completed = value;
+                if (_completed)
                 {
-                    Debug.Log($"Setting {name} complete");
+                    onComplete?.Invoke();
                 }
             }
         }
-
-        [SerializeField]
-        private bool isCompleted;
 
         #region Children
 
@@ -85,31 +95,25 @@ namespace DotwoGames.Quests
             CurrentChild.SetState(stateSegment.ToArray());
         }
 
-        public void UpdateState()
+        private void OnChildComplete()
         {
+            Debug.Log("Element completed!");
+
+            // TODO: Guard against multiple child triggers?
             if (Completed)
             {
-                Debug.Log($"{name} (and all children) complete before checking");
-                return;
+                Debug.Log("Errr, what?");
             }
 
-            if (CurrentChild.Completed)
+            if (Children.All(child => child.Completed))
+            {
+                Completed = true;
+            }
+            else
             {
                 _currentChildId++;
-
-                // _currentChildId is human-readable; the last element is when _currentChildId == children.Count
-                if (_currentChildId > Children.Count)
-                {
-                    Debug.Log($"All children of {name} now marked complete!");
-                    Completed = true;
-                    return;
-                }
             }
-
-            CurrentChild.UpdateState();
         }
-
-        protected virtual void OnEnable() {}
 
         #endregion
     }

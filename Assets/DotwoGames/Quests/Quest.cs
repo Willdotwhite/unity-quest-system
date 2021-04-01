@@ -40,7 +40,7 @@ namespace DotwoGames.Quests
         // DialogueRule: $x, >1.4.5
         public string GetProgress()
         {
-            return $"{name}: {CurrentAct.ID}.{CurrentAct.CurrentChapter.ID}.{CurrentAct.CurrentChapter.CurrentTask.ID}";
+            return $"{CurrentAct.ID}.{CurrentAct.CurrentChapter.ID}.{CurrentAct.CurrentChapter.CurrentTask.ID}";
         }
     }
 }
