@@ -32,6 +32,11 @@ namespace DotwoGames.Quests
             SetState(states);
         }
 
+        public bool CheckProgress(string predicate)
+        {
+            return Parser.IsValid(predicate, GetProgress());
+        }
+
         // Progress: 1.4.7
         // DialogueRule: $x, >1.4.5
         public string GetProgress()

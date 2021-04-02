@@ -22,12 +22,17 @@ namespace DotwoGames.Quests
             // TODO: This probably won't cause problems?
             currentQuest = FindObjectOfType<QuestManager>().Quest;
 
-            _button.GetComponentInChildren<Text>().text = _progress;
+            if (_progress != "0")
+            {
+                _button.GetComponentInChildren<Text>().text = _progress;
+            }
         }
 
         private void Update()
         {
-            _button.interactable = _progress == currentQuest.GetProgress();
+            _button.interactable =
+                _progress == "0" || // Inline override for non-version buttons
+                _progress == currentQuest.GetProgress();
         }
 
         public void OnQuestProgress()
@@ -43,6 +48,11 @@ namespace DotwoGames.Quests
             }
 
             stepsToComplete[0].Completed = true;
+        }
+
+        public void CheckQuestProgress(string predicate)
+        {
+            Debug.Log($"{predicate}, {currentQuest.GetProgress()}, :{currentQuest.CheckProgress(predicate)}");
         }
     }
 }
