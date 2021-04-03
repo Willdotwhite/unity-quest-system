@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace DotwoGames.Quests
@@ -7,10 +8,21 @@ namespace DotwoGames.Quests
     /// </summary>
     public class Quest : ParentQuestStructureElement<Act>
     {
+        [SerializeField] private bool _logProgress;
+
+
         protected override void Awake()
         {
             base.Awake();
-            Debug.Log("Quest starting up!");
+            Debug.Log($"Quest {name} starting up!");
+        }
+
+        private void Update()
+        {
+            if (_logProgress)
+            {
+                Debug.Log($"{name} progress: {GetProgress()}");
+            }
         }
 
         public Act CurrentAct => CurrentChild;
