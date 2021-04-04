@@ -1,3 +1,16 @@
 {
-	"name": "com.DotwoGames.Quests"
+    "name": "com.DotwoGames.Quests",
+    "rootNamespace": "",
+    "references": [
+        "GUID:f843c1cfda9a38f4e907825064173a42"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }
