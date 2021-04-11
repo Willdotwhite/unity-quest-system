@@ -12,6 +12,10 @@ namespace DotwoGames.Quests
         /// </summary>
         event OnComplete onComplete;
 
+        void SetActive(bool active);
+
+        bool Active { get; set; }
+
         /// <summary>
         /// Has this quest element been completed yet?
         /// </summary>

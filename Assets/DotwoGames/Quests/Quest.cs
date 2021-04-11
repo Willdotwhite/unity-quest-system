@@ -15,13 +15,15 @@ namespace DotwoGames.Quests
         {
             base.Awake();
             Debug.Log($"Quest {name} starting up!");
+
+            SetActive(true);
         }
 
         private void Update()
         {
             if (_logProgress)
             {
-                Debug.Log($"{name} progress: {GetProgress()}");
+                Debug.Log($"{name} progress: {GetProgress()} [{GetCurrentTask()}]");
             }
         }
 
@@ -54,6 +56,13 @@ namespace DotwoGames.Quests
         public string GetProgress()
         {
             return $"{CurrentAct.ID}.{CurrentAct.CurrentChapter.ID}.{CurrentAct.CurrentChapter.CurrentTask.ID}";
+        }
+
+        // Progress: 1.4.7
+        // DialogueRule: $x, >1.4.5
+        public string GetCurrentTask()
+        {
+            return $"{CurrentAct.name} - {CurrentAct.CurrentChapter.name} - {CurrentAct.CurrentChapter.CurrentTask.name}";
         }
     }
 }

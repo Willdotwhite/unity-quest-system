@@ -57,6 +57,7 @@ namespace DotwoGames.Quests
             for (int i = 0; i < Children.Count; i++)
             {
                 // Mark all previous Acts/Chapters/Tasks completed
+                Children[i].SetActive(i == currentState - 1);
                 Children[i].Completed = (i < currentState - 1);
             }
 
@@ -66,10 +67,25 @@ namespace DotwoGames.Quests
             CurrentChild.SetState(stateSegment.ToArray());
         }
 
+        public override void SetActive(bool active)
+        {
+            base.SetActive(active);
+
+            if (active)
+            {
+                CurrentChild.SetActive(true);
+            }
+            else
+            {
+                foreach (TChild child in Children)
+                {
+                    child.SetActive(false);
+                }
+            }
+        }
+
         private void OnChildComplete()
         {
-            Debug.Log("Element completed!");
-
             // TODO: Guard against multiple child triggers?
             if (Completed)
             {
@@ -78,11 +94,13 @@ namespace DotwoGames.Quests
 
             if (Children.All(child => child.Completed))
             {
+                Debug.Log($"All children of {name} complete");
                 Completed = true;
             }
             else
             {
                 _currentChildId++;
+                CurrentChild.SetActive(true);
             }
         }
     }
